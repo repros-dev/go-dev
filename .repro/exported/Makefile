@@ -10,11 +10,10 @@ clean:
 	go clean -cache -x ./... || true
 
 purge: clean
-	rm -rf ${REPRO_BINARIES_DIR}
+	rm -f ${REPRO_BINARIES_DIR}/*
 	rm -f go.sum
 	chmod -R +w ${GOPATH}
-	rm -rf ${GOPATH}/*
-	rm -f ${REPRO_EXPORTED_DIR}/${BINARY_SHORT_NAME}
+	rm -f ${GOPATH}/bin/*
 
 depend:
 	go mod tidy
@@ -43,6 +42,5 @@ ${LINUX_BINARY}: depend
 	) > ${LINUX_BINARY}.properties
 
 link-to-binary: ${LINUX_BINARY}
-	cd ${REPRO_EXPORTED_DIR} && 										\
-	rm -f ${BINARY_SHORT_NAME} && 								\
-	ln -s binaries/${LINUX_BINARY_NAME} ${BINARY_SHORT_NAME}
+	cd ${REPRO_EXPORTED_DIR}/binaries && 								\
+	ln -sfn ${LINUX_BINARY_NAME} ${BINARY_SHORT_NAME}

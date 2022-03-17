@@ -13,6 +13,6 @@ repro.setenv LINUX_BINARY_VERSION 0.2.6
 
 repro.prefixpath /usr/local/go/bin
 repro.prefixpath '${GOPATH}/bin'
-repro.prefixpath '${REPRO_MNT}/.repro/exported'
+repro.prefixpath '${REPRO_MNT}/.repro/exported/binaries'
 
 repro.setenv GO_DEV_MAKEFILE '$(repro.get_module_dir go-dev)'/Makefile
