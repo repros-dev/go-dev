@@ -7,7 +7,7 @@ echo "Executable has these properties:"
 echo "--------------------------------"
 file -b ${path_to_binary} | sed "s/, /\\n/g"
 
-libs=$(ldd ${path_to_binary}) 2> /dev/null
+libs=$(ldd ${path_to_binary} 2> /dev/null)
 if [[ $? == 0 ]] ; then
     echo
     echo "------------------------------------------------"

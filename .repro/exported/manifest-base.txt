@@ -1,3 +1,4 @@
-setup-base.sh
 Makefile
-create_binary_report.sh
+setup-base.sh
+go-dev.create-binary-report
+go-dev.build-commands

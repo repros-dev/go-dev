@@ -1,0 +1,19 @@
+#!/bin/bash
+
+GO_LINKER_FLAGS=
+
+mkdir -p ${REPRO_BINARIES_DIR}
+cd ${REPRO_BINARIES_DIR}
+
+cmd_names=$(ls ${REPRO_MNT}/cmd)
+for cmd_name in ${cmd_names[@]} ; do
+    echo "Building command ${cmd_name}..."
+    executable_name=${cmd_name}-${LINUX_BINARY_VERSION}-linux-x86-64-static
+    echo "Building executable ${executable_name}..."
+    CGO_ENABLED=0 GOOS=linux go build -a ${GO_LINKER_FLAGS}         \
+                                      -o ${executable_name}         \
+                                      ${REPRO_MNT}/cmd/${cmd_name}
+    echo "Linking ${cmd_name} to executable ${executable_name}..."
+    ln -sfn ${executable_name} ${cmd_name}
+    go-dev.create-binary-report ${executable_name} > ${executable_name}.properties
+done
