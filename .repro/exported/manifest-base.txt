@@ -1,2 +1,3 @@
 setup-base.sh
 Makefile
+create_binary_report.sh

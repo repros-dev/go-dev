@@ -27,7 +27,7 @@ test: build
 	go test ./... -count 1 -p 1
 
 install: build
-	go install ./...   
+	go install ./...
 
 package: link-to-binary
 
@@ -35,12 +35,10 @@ ${LINUX_BINARY}: depend
 	mkdir -p ${REPRO_BINARIES_DIR}
 	cd ${REPRO_BINARIES_DIR}
 	CGO_ENABLED=0 GOOS=linux go build -a ${GO_LINKER_FLAGS} -o ${LINUX_BINARY} ${REPRO_MNT}/cmd/...
-	(echo "\nExecutable has these properties:\n" &&						\
-	file -b ${LINUX_BINARY} | sed "s/, /\\n/g" && 						\
-	echo "\nExecutable dynamically links to these libraries:\n" &&		\
-	ldd ${LINUX_BINARY} | sort											\
-	) > ${LINUX_BINARY}.properties
 
-link-to-binary: ${LINUX_BINARY}
+binary_report: 
+	create_binary_report.sh ${LINUX_BINARY} > ${LINUX_BINARY}.properties
+
+link-to-binary: ${LINUX_BINARY} binary_report
 	cd ${REPRO_EXPORTED_DIR}/binaries && 								\
 	ln -sfn ${LINUX_BINARY_NAME} ${BINARY_SHORT_NAME}
