@@ -16,7 +16,7 @@ test: build
 install: build
 	go install ./...
 
-commands:
+commands: depend
 	go-dev.build-commands
 
 purge: clean
