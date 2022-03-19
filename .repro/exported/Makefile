@@ -24,4 +24,4 @@ purge: clean
 	rm -f go.sum
 	chmod -R +w ${GOPATH}
 	rm -f ${GOPATH}/bin/*
-	rm -rf ${GOPATH}/pkg
+	rm -rf ${GOPATH}/pkg/*
