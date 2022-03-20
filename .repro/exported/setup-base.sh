@@ -15,4 +15,4 @@ repro.prefixpath /usr/local/go/bin
 repro.prefixpath '${GOPATH}/bin'
 repro.prefixpath '${REPRO_MNT}/.repro/exported/binaries'
 
-repro.setenv GO_DEV_MAKEFILE '$(repro.installation_dir_for_module go-dev)'/Makefile
+repro.setenv GO_DEV_MAKEFILE '$(repro.state_dir_for_module go-dev)'/Makefile
