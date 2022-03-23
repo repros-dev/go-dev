@@ -1,0 +1,19 @@
+#!/bin/bash
+
+requested_target=$1
+echo "Running target $requested_target"
+
+[[ ! -f ${REPRO_TARGETS_FILE} ]] && exit
+
+readarray targets_file_lines < ${REPRO_TARGETS_FILE}
+
+for target_entry in "${targets_file_lines[@]}" ; do
+    read -ra tokens <<< ${target_entry}
+    if [[ ${tokens[0]} == ${requested_target}: ]] ; then
+        IFS='.' read module_name module_target <<< ${tokens[1]}
+        make -f ${REPRO_MNT}/.${module_name}/Makefile ${module_target}
+        exit
+    fi
+done
+
+echo "Target $requested_target not found"

@@ -1,0 +1,6 @@
+clean-code: clean
+purge-code: purge
+build-code: build
+test-code: test
+install-code: install
+package-code: commands

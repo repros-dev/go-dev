@@ -1,0 +1,6 @@
+clean-code: go-dev.clean
+purge-code: go-dev.purge
+build-code: go-dev.build
+test-code: go-dev.test
+install-code: go-dev.install
+package-code: go-dev.commands

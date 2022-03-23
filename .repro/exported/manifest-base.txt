@@ -2,3 +2,5 @@ Makefile
 setup-base.sh
 go-dev.create-binary-report
 go-dev.build-commands
+targets.txt
+repro.run_target
