@@ -1,5 +1,5 @@
-Makefile
-setup-base.sh
+Makefile-base
+setup-base
+targets-base
 go-dev.create-binary-report
 go-dev.build-commands
-targets-base.txt
