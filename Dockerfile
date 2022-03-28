@@ -1,6 +1,6 @@
 FROM cirss/repro-template:latest
 
-COPY  exports /repro/exports
+COPY exports /repro/exports
 
 USER repro
 
