@@ -8,11 +8,11 @@ sudo curl -f ${GO_DOWNLOADS_URL}/${GO_ARCHIVE} -o /tmp/${GO_ARCHIVE}
 sudo tar -xzf /tmp/${GO_ARCHIVE} -C /usr/local
 
 repro.setenv GOPATH '$(repro.state_dir_for_module go-dev)'
-repro.setenv REPRO_BINARIES_DIR '${REPRO_EXPORTED_DIR}/binaries'
+repro.setenv REPRO_BINARIES_DIR '${REPRO_EXPORTS_DIR}/binaries'
 repro.setenv LINUX_BINARY_VERSION 0.2.6
 
 repro.prefixpath /usr/local/go/bin
 repro.prefixpath '${GOPATH}/bin'
-repro.prefixpath '${REPRO_MNT}/.repro/exported/binaries'
+repro.prefixpath '${REPRO_BINARIES_DIR}'
 
 repro.setenv GO_DEV_MAKEFILE '$(repro.state_dir_for_module go-dev)'/Makefile
