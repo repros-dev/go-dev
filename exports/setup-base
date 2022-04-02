@@ -7,12 +7,12 @@ GO_ARCHIVE=go${GO_VERSION}.linux-amd64.tar.gz
 sudo curl -f ${GO_DOWNLOADS_URL}/${GO_ARCHIVE} -o /tmp/${GO_ARCHIVE}
 sudo tar -xzf /tmp/${GO_ARCHIVE} -C /usr/local
 
-repro.setenv GOPATH '$(repro.state_dir_for_module go-dev)'
-repro.setenv REPRO_BINARIES_DIR '${REPRO_EXPORTS_DIR}/binaries'
-repro.setenv LINUX_BINARY_VERSION 0.2.6
+repro.env GOPATH '$(repro.state_dir_for_module go-dev)'
+repro.env REPRO_BINARIES_DIR '${REPRO_EXPORTS_DIR}/binaries'
+repro.env LINUX_BINARY_VERSION 0.2.6
 
-repro.prefixpath /usr/local/go/bin
-repro.prefixpath '${GOPATH}/bin'
-repro.prefixpath '${REPRO_BINARIES_DIR}'
+repro.path /usr/local/go/bin
+repro.path '${GOPATH}/bin'
+repro.path '${REPRO_BINARIES_DIR}'
 
-repro.setenv GO_DEV_MAKEFILE '$(repro.state_dir_for_module go-dev)'/Makefile
+repro.env GO_DEV_MAKEFILE '$(repro.state_dir_for_module go-dev)'/Makefile
