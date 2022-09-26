@@ -2,6 +2,8 @@ REPRO_NAME=go-dev
 REPRO_DOCKER_ORG=cirss
 REPRO_IMAGE_TAG=latest
 
+export REPRO_LOGGING_LEVEL=debug
+
 image:                  build-image   ## 
 start:                  start-repro   ## 
 
