@@ -9,7 +9,6 @@ sudo tar -xzf /tmp/${GO_ARCHIVE} -C /usr/local
 
 repro.env GOPATH '$(repro.trim_dir_name_for_module go-dev)'
 repro.env REPRO_BINARIES_DIR '${REPRO_EXPORTS_DIR}/binaries'
-repro.env LINUX_BINARY_VERSION 0.2.6
 
 repro.path /usr/local/go/bin
 repro.path '${GOPATH}/bin'
