@@ -7,6 +7,6 @@ RUN bash /repro/dist/boot-setup
 
 USER repro
 
-RUN repro.require go-dev exports
+RUN repro.require go-dev exports --code
 
 CMD  /bin/bash -il
